@@ -1,0 +1,6 @@
+name: webd
+description: A library to support simple web server based UIs
+dependencies:
+  http:
+    url: github.com/toitlang/pkg-http
+    version: ^2.3.4

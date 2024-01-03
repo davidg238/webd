@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <style>
+         .tab {
+         overflow: hidden;
+         border: 1px solid #ccc;
+         background-color: #f1f1f1;
+         }
+         /* Style the buttons that are used to open the tab content */
+         .tab button {
+         background-color: inherit;
+         float: left;
+         border: none;
+         outline: none;
+         cursor: pointer;
+         padding: 14px 16px;
+         transition: 0.3s;
+         }
+         /* Change background color of buttons on hover */
+         .tab button:hover {
+         background-color: #ddd;
+         }
+         /* Create an active/current tablink class */
+         .tab button.active {
+         background-color: #ccc;
+         }
+         /* Style the tab content */
+         .tabcontent {
+         display: none;
+         padding: 6px 12px;
+         border: 1px solid #ccc;
+         border-top: none;
+         }
+         table, th, td {
+         padding: 5px;
+         border-collapse: collapse;
+         }
+         .slider {
+         width: 400px;
+         height: 25px;
+         background: #d3d3d3;
+         outline: none;
+         opacity: 0.7;
+         -webkit-transition: .2s;
+         transition: opacity .2s;
+         }
+         .slider:hover {
+         opacity: 1;
+         }
+      </style>
+   </head>
+   <body onload="open_ws_connection()">
+      <div class="w3-row-padding">
+         <a class="click" href="http://192.168.0.174:8080">Home</a>
+      </div>
+      <div class="w3-row-padding">
+         Inputs <a class="click" href="http://192.168.0.174:8080/casco/rules">rules</a> <a class="click" href="http://192.168.0.174:8080/casco/outputs">outputs</a>
+      </div>
+      <div class="w3-row-padding">
+         <h4>Inputs</h4>
+      </div>
+      <div id="inputs" class="w3-row-padding">
+         <h3>Fuzzy Model: casco</h3>
+         <div id="in1" class="w3-container w3-quarter">
+            <b>Input:</b> humidity <b>Sets:</b> 
+            <tspan style="color:aqua">dry</tspan>
+            , 
+            <tspan style="color:blue">wet</tspan>
+            , 
+            <tspan style="color:teal">puddled</tspan>
+            <div style="float:left">
+               <svg width="40" height="300"></svg>
+            </div>
+            <div style="float:left">
+               <div style="position: relative;left: 0px; width: 400 px;">
+                  <svg width="400" height="300">
+                     <line x1="0" y1="0" x2="0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="80.0" y1="0" x2="80.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="160.0" y1="0" x2="160.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="240.0" y1="0" x2="240.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="320.0" y1="0" x2="320.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="400.0" y1="0" x2="400.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="300.0" x2="400.0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="0" y1="240.0" x2="400.0" y2="240.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="180.0" x2="400.0" y2="180.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="120.0" x2="400.0" y2="120.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="60.0" x2="400.0" y2="60.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="0.0" x2="400.0" y2="0.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                  </svg>
+                  <svg width="400" height="40"></svg>
+               </div>
+            </div>
+            <input type="range" min="1" max="100" value=0.0 class="slider" id=humidity>
+         </div>
+         <div id="in1" class="w3-container w3-quarter">
+            <b>Input:</b> temperature <b>Sets:</b> 
+            <tspan style="color:aqua">cold</tspan>
+            , 
+            <tspan style="color:blue">tempered</tspan>
+            , 
+            <tspan style="color:teal">heat</tspan>
+            <div style="float:left">
+               <svg width="40" height="300"></svg>
+            </div>
+            <div style="float:left">
+               <div style="position: relative;left: 0px; width: 400 px;">
+                  <svg width="400" height="300">
+                     <line x1="0" y1="0" x2="0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="66.0" y1="0" x2="66.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="132.0" y1="0" x2="132.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="198.0" y1="0" x2="198.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="264.0" y1="0" x2="264.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="330.0" y1="0" x2="330.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="396.0" y1="0" x2="396.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="300.0" x2="396.0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="0" y1="240.0" x2="396.0" y2="240.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="180.0" x2="396.0" y2="180.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="120.0" x2="396.0" y2="120.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="60.0" x2="396.0" y2="60.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="0.0" x2="396.0" y2="0.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                  </svg>
+                  <svg width="400" height="40"></svg>
+               </div>
+            </div>
+            <input type="range" min="1" max="100" value=0.0 class="slider" id=temperature>
+         </div>
+         <div id="in1" class="w3-container w3-quarter">
+            <b>Input:</b> season <b>Sets:</b> 
+            <tspan style="color:aqua">summer</tspan>
+            , 
+            <tspan style="color:blue">fall</tspan>
+            , 
+            <tspan style="color:teal">winter</tspan>
+            , 
+            <tspan style="color:fuchsia">spring</tspan>
+            <div style="float:left">
+               <svg width="40" height="300"></svg>
+            </div>
+            <div style="float:left">
+               <div style="position: relative;left: 0px; width: 400 px;">
+                  <svg width="400" height="300">
+                     <line x1="0" y1="0" x2="0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="66.0" y1="0" x2="66.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="132.0" y1="0" x2="132.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="198.0" y1="0" x2="198.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="264.0" y1="0" x2="264.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="330.0" y1="0" x2="330.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="396.0" y1="0" x2="396.0" y2="300.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="300.0" x2="396.0" y2="300.0" style="stroke:rgb(0,0,0);stroke-width:1" />
+                     <line x1="0" y1="240.0" x2="396.0" y2="240.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="180.0" x2="396.0" y2="180.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="120.0" x2="396.0" y2="120.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="60.0" x2="396.0" y2="60.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                     <line x1="0" y1="0.0" x2="396.0" y2="0.0" vector-effect="non-scaling-stroke" stroke="black" stroke-dasharray="20,5" stroke-opacity="0.5" />
+                  </svg>
+                  <svg width="400" height="40"></svg>
+               </div>
+            </div>
+            <input type="range" min="1" max="100" value=0.0 class="slider" id=season>
+         </div>
+      </div>
+      </div>
+   </body>
+   <script type = "text/javascript">
+      var ws;
+      
+      function send_num(device, num) {
+        ws.send('{"' + device + '": ' + num + '}');
+      }
+      function device_on(adevice) {
+        send_num(adevice, 1);
+      }
+      function device_off(adevice) {
+        send_num(adevice, 0);
+      }
+      function dispatch_msg(msg)  {
+        // const obj = JSON.parse(msg)
+        //var line = el.appendChild(SVGPolylineElement);
+        // line.setAttributes("points", "10,0.0 20, 50 70,50 80,0.0");
+        /*
+        const obj = JSON.parse(msg, function (key, value) {
+          var el = document.getElementById(key);
+          if (el != null) {
+            el.innerHTML = value;
+          };
+        }); */
+      }
+      document.getElementById("humidity").addEventListener("change", function() { send_num("humidity", this.value); });
+      document.getElementById("temperature").addEventListener("change", function() { send_num("temperature", this.value); });
+      document.getElementById("season").addEventListener("change", function() { send_num("season", this.value); });
+      function open_ws_connection() {
+        if ("WebSocket" in window) {
+            ws = new WebSocket('ws://192.168.0.174:8080');
+            ws.onopen = function() {
+              document.getElementById("alerts").innerHTML = "-- active --";
+            };
+            ws.onmessage = function (evt) { 
+              var received_msg = evt.data;
+              dispatch_msg(received_msg);
+            };
+            ws.onclose = function() {
+              document.getElementById("alerts").innerHTML = "-- closed --";
+            };
+        } else {
+            // The browser doesn't support WebSocket
+            alert("WebSocket NOT supported by your Browser!");
+        };
+      }
+   </script>
+</html>
